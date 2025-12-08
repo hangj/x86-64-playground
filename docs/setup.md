@@ -2,7 +2,8 @@
 This is a guide on how to setup and compile the backend side of the x86-64 playground.
 
 The core of the playground is a fork of the [Blink](https://github.com/jart/blink/) x86-64-linux emulator, 
-which has been modified to expose a WASM library since the original project is designed to work as a TUI only,
+which has been modified to expose a WASM library.
+This change was necessary because the original project is designed to work as a TUI only,
 and does not expose any low-leve API.
 
 Some extra context is provided in the [design document](./design.md) for this project.
