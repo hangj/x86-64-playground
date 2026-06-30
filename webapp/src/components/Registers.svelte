@@ -33,14 +33,6 @@ let registers = [
 	{ name: "xmm5", updated: false, str: "0x00" },
 	{ name: "xmm6", updated: false, str: "0x00" },
 	{ name: "xmm7", updated: false, str: "0x00" },
-	{ name: "xmm8", updated: false, str: "0x00" },
-	{ name: "xmm9", updated: false, str: "0x00" },
-	{ name: "xmm10", updated: false, str: "0x00" },
-	{ name: "xmm11", updated: false, str: "0x00" },
-	{ name: "xmm12", updated: false, str: "0x00" },
-	{ name: "xmm13", updated: false, str: "0x00" },
-	{ name: "xmm14", updated: false, str: "0x00" },
-	{ name: "xmm15", updated: false, str: "0x00" },
 ];
 
 let eflagsStr = "0x0";
