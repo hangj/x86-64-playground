@@ -22,7 +22,25 @@ let registers = [
 	{ name: "r13", updated: false, str: "0x00" },
 	{ name: "r14", updated: false, str: "0x00" },
 	{ name: "r15", updated: false, str: "0x00" },
+
 	{ name: "rip", updated: true, str: "0x00" },
+
+	{ name: "xmm0", updated: false, str: "0x00" },
+	{ name: "xmm1", updated: false, str: "0x00" },
+	{ name: "xmm2", updated: false, str: "0x00" },
+	{ name: "xmm3", updated: false, str: "0x00" },
+	{ name: "xmm4", updated: false, str: "0x00" },
+	{ name: "xmm5", updated: false, str: "0x00" },
+	{ name: "xmm6", updated: false, str: "0x00" },
+	{ name: "xmm7", updated: false, str: "0x00" },
+	{ name: "xmm8", updated: false, str: "0x00" },
+	{ name: "xmm9", updated: false, str: "0x00" },
+	{ name: "xmm10", updated: false, str: "0x00" },
+	{ name: "xmm11", updated: false, str: "0x00" },
+	{ name: "xmm12", updated: false, str: "0x00" },
+	{ name: "xmm13", updated: false, str: "0x00" },
+	{ name: "xmm14", updated: false, str: "0x00" },
+	{ name: "xmm15", updated: false, str: "0x00" },
 ];
 
 let eflagsStr = "0x0";
