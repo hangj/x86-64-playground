@@ -25,6 +25,8 @@ let registers = [
 
 	{ name: "rip", updated: true, str: "0x00" },
 
+	{ name: "xmm", updated: false, str: "0x00" },
+
 	// { name: "xmm0", updated: false, str: "0x00" },
 	// { name: "xmm1", updated: false, str: "0x00" },
 	// { name: "xmm2", updated: false, str: "0x00" },
@@ -156,7 +158,8 @@ function updateRegisters() {
 		return;
 
 	for (const reg of registers) {
-		const new_str = blink.m.stringReadU64(reg.name.trim());
+		const name = reg.name.trim();
+		const new_str = name === "xmm" ? blink.m.stringReadU128(name) : blink.m.stringReadU64(name);
 		if (new_str === reg.str) {
 			reg.updated = false;
 		} else {

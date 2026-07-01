@@ -55,6 +55,8 @@ class M_CLStruct {
 		dis__max_line_len: { index: 27, pointer: false },
 		dis__current_line: { index: 28, pointer: false },
 		dis__buffer: { index: 29, pointer: true },
+
+		xmm: { index: 30, pointer: true },
 	};
 	memory: WebAssembly.Memory;
 	memView: DataView;
@@ -113,10 +115,25 @@ class M_CLStruct {
 		return this.memView.getBigUint64(ptr, little_endian);
 	}
 
+	stringReadU128(key: keyof typeof this.keys): string {
+		const ptr = this.getPtr(key);
+		let hexStr = "";
+		for (let i = 15; i >= 0; i--) {
+			const byte = this.memView.getUint8(ptr + i);
+			if (hexStr || byte || i === 0)
+				hexStr += byte.toString(16).padStart(2, "0");
+		}
+		return `0x${hexStr}`;
+	}
+
 	getPtr(key: keyof typeof this.keys): number {
 		if (!this.structView.buffer.byteLength) {
 			console.log("blink: memory grew");
 			this.growMemory();
+		}
+		if (!Object.prototype.hasOwnProperty.call(this.keys, key)) {
+			alert(`invalid key: ${key}`);
+			throw new Error(`invalid key: ${key}`);
 		}
 		const index = this.keys[key].index * this.sizeof_key;
 		const little_endian = true;
