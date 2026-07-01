@@ -293,4 +293,4 @@ export const snippets: Record<string, Snippet> = {
 	},
 } as const;
 
-export const default_snippet: keyof typeof snippets = "syscall_FASM";
+export const default_snippet: keyof typeof snippets = "functions_NASM";
