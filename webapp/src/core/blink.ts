@@ -131,6 +131,18 @@ class M_CLStruct {
 			console.log("blink: memory grew");
 			this.growMemory();
 		}
+
+		if (key.startsWith("xmm")) {
+			const idx = parseInt(key.substring(3));
+			if (idx < 0 || idx > 15) {
+				alert(`invalid key: ${key}`);
+				throw new Error(`invalid key: ${key}`);
+			}
+			const index = this.keys["xmm"].index * this.sizeof_key;
+			const little_endian = true;
+			return this.structView.getUint32(index, little_endian) + idx * 16;
+		}
+
 		if (!Object.prototype.hasOwnProperty.call(this.keys, key)) {
 			alert(`invalid key: ${key}`);
 			throw new Error(`invalid key: ${key}`);

@@ -58,6 +58,8 @@ struct clstruct {
   u32 dis__max_line_len;  // number
   u32 dis__current_line;  // number
   u32 dis__buffer;
+
+  u32 xmm;
 };
 
 void blinkenlib_run_fast();

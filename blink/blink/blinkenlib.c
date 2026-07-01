@@ -226,6 +226,8 @@ void update_clstruct(struct Machine *m) {
   cls.dis__current_line = updateDisassembler();
   cls.dis__buffer = (u32)&dis_buffer;
 
+  cls.xmm = (u32)&m->xmm;
+
   // TODO: other useful data
   //  printf("page tables:\n%s\n", FormatPml4t(m));
   //  u64 entry = FindPageTableEntry(m, (GetPc(m) & -4096));

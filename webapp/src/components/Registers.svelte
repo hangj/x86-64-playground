@@ -25,16 +25,22 @@ let registers = [
 
 	{ name: "rip", updated: true, str: "0x00" },
 
-	{ name: "xmm", updated: false, str: "0x00" },
-
-	// { name: "xmm0", updated: false, str: "0x00" },
-	// { name: "xmm1", updated: false, str: "0x00" },
-	// { name: "xmm2", updated: false, str: "0x00" },
-	// { name: "xmm3", updated: false, str: "0x00" },
-	// { name: "xmm4", updated: false, str: "0x00" },
-	// { name: "xmm5", updated: false, str: "0x00" },
-	// { name: "xmm6", updated: false, str: "0x00" },
-	// { name: "xmm7", updated: false, str: "0x00" },
+	{ name: "xmm0 ", updated: false, str: "0x00" },
+	{ name: "xmm1 ", updated: false, str: "0x00" },
+	{ name: "xmm2 ", updated: false, str: "0x00" },
+	{ name: "xmm3 ", updated: false, str: "0x00" },
+	{ name: "xmm4 ", updated: false, str: "0x00" },
+	{ name: "xmm5 ", updated: false, str: "0x00" },
+	{ name: "xmm6 ", updated: false, str: "0x00" },
+	{ name: "xmm7 ", updated: false, str: "0x00" },
+	{ name: "xmm8 ", updated: false, str: "0x00" },
+	{ name: "xmm9 ", updated: false, str: "0x00" },
+	{ name: "xmm10", updated: false, str: "0x00" },
+	{ name: "xmm11", updated: false, str: "0x00" },
+	{ name: "xmm12", updated: false, str: "0x00" },
+	{ name: "xmm13", updated: false, str: "0x00" },
+	{ name: "xmm14", updated: false, str: "0x00" },
+	{ name: "xmm15", updated: false, str: "0x00" },
 ];
 
 let eflagsStr = "0x0";
@@ -159,7 +165,7 @@ function updateRegisters() {
 
 	for (const reg of registers) {
 		const name = reg.name.trim();
-		const new_str = name === "xmm" ? blink.m.stringReadU128(name) : blink.m.stringReadU64(name);
+		const new_str = name.startsWith("xmm") ? blink.m.stringReadU128(name) : blink.m.stringReadU64(name);
 		if (new_str === reg.str) {
 			reg.updated = false;
 		} else {
